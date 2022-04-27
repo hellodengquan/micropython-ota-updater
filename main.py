@@ -1,5 +1,3 @@
-
-
 def connectToWifiAndUpdate():
     import time, machine, network, gc, app.secrets as secrets
     time.sleep(1)
@@ -15,7 +13,7 @@ def connectToWifiAndUpdate():
         while not sta_if.isconnected():
             pass
     print('network config:', sta_if.ifconfig())
-    otaUpdater = OTAUpdater('https://github.com/rdehuyss/micropython-ota-updater', main_dir='app', secrets_file="secrets.py")
+    otaUpdater = OTAUpdater('http://192.168.3.25:8000/releases', main_dir='app', secrets_file="secrets.py")
     hasUpdated = otaUpdater.install_update_if_available()
     if hasUpdated:
         machine.reset()

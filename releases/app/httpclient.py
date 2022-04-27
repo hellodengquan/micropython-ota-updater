@@ -28,6 +28,7 @@ class Response:
 
         try:
             result = self._socket.read()
+            print(result)
             return result
         finally:
             self.close()
